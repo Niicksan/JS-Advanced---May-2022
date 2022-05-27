@@ -8,7 +8,7 @@ function objectFactory(lib, orders) {
         for (let part of order.parts) {
             object[part] = lib[part]
         }
-
+        
         // return object
         return object;
     });
