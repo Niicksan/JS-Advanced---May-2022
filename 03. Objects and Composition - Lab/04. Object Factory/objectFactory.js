@@ -48,5 +48,7 @@ const orders = [
 ];
 
 const products = objectFactory(library, orders);
+
 console.log(products);
+
 products[3].play('Rick Atley', 'Never Gonna Give You Up');
