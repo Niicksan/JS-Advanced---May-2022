@@ -6,6 +6,14 @@ function townPopulation(townArray) {
         const name = tokens[0];
         let pop = Number(tokens[1]);
 
+        /*
+        if (obj.hasOwnProperty(name)) {
+            let Objpopulation = obj[name]+population;
+            obj[name] = Objpopulation;
+        } else {
+            obj[name] = population
+        }*/
+
         if (towns[name] != undefined) {
             pop += towns[name];
         }
