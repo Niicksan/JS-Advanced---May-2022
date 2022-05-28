@@ -8,7 +8,7 @@ function objectFactory(lib, orders) {
         for (let part of order.parts) {
             object[part] = lib[part]
         }
-        
+
         // return object
         return object;
     });
@@ -48,7 +48,5 @@ const orders = [
 ];
 
 const products = objectFactory(library, orders);
-
 console.log(products);
-
 products[3].play('Rick Atley', 'Never Gonna Give You Up');
