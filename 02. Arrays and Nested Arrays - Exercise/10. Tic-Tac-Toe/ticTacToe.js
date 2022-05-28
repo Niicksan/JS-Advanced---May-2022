@@ -70,8 +70,7 @@ function ticTacToe(commands) {
             isWinner = true;
             break;
         }
-
-        if (++turn === matrixSize**2) {
+        if (++turn === matrixSize ** 2) {
             break;
         }
     }
@@ -80,7 +79,7 @@ function ticTacToe(commands) {
         ? `Player ${players[1]} wins!`
         : 'The game ended! Nobody wins :(');
 
-    for(let line of field) {
+    for (let line of field) {
         console.log(line.join('\t'))
     }
 }
