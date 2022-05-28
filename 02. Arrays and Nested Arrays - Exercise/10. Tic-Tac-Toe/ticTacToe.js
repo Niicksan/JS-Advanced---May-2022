@@ -70,6 +70,7 @@ function ticTacToe(commands) {
             isWinner = true;
             break;
         }
+
         if (++turn === matrixSize ** 2) {
             break;
         }

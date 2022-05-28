@@ -19,6 +19,7 @@ function spiralMatrix(matrixRow, matrixCol) {
             direction = directions.shift();
             continue;
         }
+
         [row, col] = [nextRow, nextCol];
         matrix[row][col] = ++currentNumber;
     }
