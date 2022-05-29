@@ -8,14 +8,13 @@ function sortedList() {
             this.size = this.elements.length;
         },
         get(index) {
-            if (this.elements[index] != undefined) {
+            if (this.elements[index] !== undefined) {
                 return this.elements[index];
             }
         },
         remove(index) {
-            if (this.elements[index] != undefined) {
+            if (this.elements[index] !== undefined) {
                 this.elements.splice(index, 1);
-                this.elements.sort((a, b) => a - b);
                 this.size = this.elements.length;
             }
         }
