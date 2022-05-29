@@ -1,7 +1,7 @@
 function townsToJson(array) {
     const towns = [];
-
     let [name, latitude, longitude] = parseElements(array[0]);
+
     for (let i = 1; i < array.length; i++) {
         const town = {};
 
@@ -10,8 +10,8 @@ function townsToJson(array) {
         townLongitude = toSecondDigit(townLongitude);
 
         town[name] = townName;
-        town[latitude] = new Number(townLatitude);
-        town[longitude] = new Number(townLongitude);
+        town[latitude] = Number(townLatitude);
+        town[longitude] = Number(townLongitude);
 
         towns.push(town);
     }
