@@ -1,30 +1,33 @@
 function notation(array) {
-    const numbers = [];
     const operands = [];
+    let notEnoughOperands = false;
 
     for (const element of array) {
-        if (Number(element)) {
-            numbers.push(element);
+        if ('+-*/'.includes(element)) {
+            if (operands.length < 2) {
+                notEnoughOperands = true;
+                break;
+            }
+
+            //const [number1, number2] = operands.splice(-2, 2);
+            number2 = operands.pop();
+            number1 = operands.pop();
+
+            if (number2 === 0 && element === '/') {
+                break;
+            }
+
+            operands.push(calculate(number1, number2, element));
         } else {
             operands.push(element);
         }
     }
 
-    if (numbers.length - operands.length > 1) {
-        return console.log('Error: too many operands!');
-    } else if (numbers.length <= 1) {
-        return console.log('Error: not enough operands!');
+    if (notEnoughOperands) {
+        console.log('Error: not enough operands!');
+    } else {
+        console.log(operands.length === 1 ? operands[0] : 'Error: too many operands!');
     }
-
-    while (operands.length > 0) {
-        let firstNum = numbers.pop();
-        let secondNum = numbers.pop();
-        let operand = operands.shift();
-
-        numbers.push(calculate(secondNum, firstNum, operand));
-    }
-
-    console.log(numbers.join(''));
 
     function calculate(num1, num2, opeerand) {
         switch (opeerand) {
@@ -43,9 +46,8 @@ function notation(array) {
 }
 
 notation([31, 2, '+', 11, '/']);
-/*
+notation([-1, 1, '+', 101, '*', 18, '+', 3, '/']);
 notation([3, 4, '+']);
 notation([5, 3, 4, '*', '-']);
 notation([7, 33, 8, '-']);
 notation([15, '/']);
-*/

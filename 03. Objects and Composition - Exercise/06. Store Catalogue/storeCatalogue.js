@@ -1,6 +1,26 @@
 function storeCatalogue(input) {
     const result = input.sort((a, b) => a.localeCompare(b));
     let firstChar = '';
+    let obj = {};
+
+    for (let i = 0; i < result.length; i++) {
+        let [product, price] = result[i].split(' : ');
+
+        obj[product] = price;
+
+        if (result[i][0] !== firstChar) {
+            console.log(result[i][0]);
+        }
+
+        console.log(`  ${product}: ${obj[product]}`);
+
+        firstChar = result[i][0];
+    }
+}
+
+/*function storeCatalogue(input) {
+    const result = input.sort((a, b) => a.localeCompare(b));
+    let firstChar = '';
 
     for (const element of result) {
         let [name, price] = element.split(' : ');
@@ -14,7 +34,7 @@ function storeCatalogue(input) {
 
         firstChar = element[0];
     }
-}
+}*/
 
 storeCatalogue([
     'Appricot : 20.4',
