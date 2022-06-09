@@ -56,9 +56,9 @@ function solve() {
         }
 
         if (isHasRowDuplicate || isHasCollDuplicate || hasError) {
-            setStyle('2px solid', 'red', 'NOP! You are not done yet...');
+            setStyle('2px solid red', 'red', 'NOP! You are not done yet...');
         } else {
-            setStyle('2px solid', 'green', 'You solve it! Congratulations!')
+            setStyle('2px solid green', 'green', 'You solve it! Congratulations!')
         }
     }
 
@@ -74,7 +74,6 @@ function solve() {
 
     function setStyle(tableStyle, color, resultContent) {
         table.style.border = tableStyle;
-        table.style.borderColor = color;
         result.textContent = resultContent;
         result.style.color = color;
     }
