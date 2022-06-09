@@ -7,7 +7,6 @@ function solve() {
     const numbers = Array.from(document.querySelectorAll('input'));
     const table = document.querySelector('table');
     const result = document.getElementById('check').children[0];
-    console.dir(result);
 
     function quickCheck() {
         let hasError = false;
@@ -21,7 +20,7 @@ function solve() {
             for (let colIndex = 0; colIndex < size; colIndex++) {
                 const cellValue = tbody.children[rowIndex].children[colIndex].firstElementChild.value;
 
-                if (cellValue < 1 || cellValue > size || cellValue == '' || Number(cellValue) == NaN) {
+                if (cellValue < 1 || cellValue > size || cellValue == '') {
                     hasError = true;
                     break;
                 }
@@ -35,7 +34,6 @@ function solve() {
             }
         }
 
-
         //Check columns
         for (let colIndex = 0; colIndex < size; colIndex++) {
             const colsValues = [];
@@ -43,7 +41,7 @@ function solve() {
             for (let rowIndex = 0; rowIndex < size; rowIndex++) {
                 const cellValue = tbody.children[rowIndex].children[colIndex].firstElementChild.value;
 
-                if (cellValue < 1 || cellValue > size || cellValue == '' || Number(cellValue) == NaN) {
+                if (cellValue < 1 || cellValue > size || cellValue == '') {
                     hasError = true;
                     break;
                 }
@@ -57,7 +55,11 @@ function solve() {
             }
         }
 
-        (!isHasRowDuplicate && !isHasCollDuplicate && !hasError) ? setStyle('2px solid', 'green', 'You solve it! Congratulations!') : setStyle('2px solid', 'red', 'NOP! You are not done yet...');
+        if (isHasRowDuplicate || isHasCollDuplicate || hasError) {
+            setStyle('2px solid', 'red', 'NOP! You are not done yet...');
+        } else {
+            setStyle('2px solid', 'green', 'You solve it! Congratulations!')
+        }
     }
 
     function clear() {
