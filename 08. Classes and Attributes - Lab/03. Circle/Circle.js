@@ -24,7 +24,6 @@ class Circle {
     }
 }
 
-
 let circle = new Circle(2);
 
 console.log(`Radius: ${circle.radius}`);

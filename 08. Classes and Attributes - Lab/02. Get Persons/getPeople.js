@@ -20,5 +20,4 @@ function getPeople() {
     ];
 }
 
-
 console.log(getPeople());
