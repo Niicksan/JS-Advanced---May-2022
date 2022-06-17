@@ -8,7 +8,7 @@ function juiceFlavors(input) {
         const bottlesQuantity = {};
 
         if (!juiceBottles.has(name)) {
-            if (Number(quantity) / 1000 > 1) {
+            if (Number(quantity) / 1000 >= 1) {
                 bottlesQuantity.quantity = Number(quantity) % 1000;
                 bottlesQuantity.bottles = Math.trunc(Number(quantity) / 1000);
 
@@ -23,7 +23,7 @@ function juiceFlavors(input) {
         } else {
             const currQty = juiceBottles.get(name).quantity;
 
-            if ((currQty + Number(quantity)) / 1000 > 1) {
+            if ((currQty + Number(quantity)) / 1000 >= 1) {
                 juiceBottles.get(name).quantity = (currQty + Number(quantity)) % 1000;
                 juiceBottles.get(name).bottles += Math.trunc((currQty + Number(quantity)) / 1000);
 
